@@ -5,6 +5,11 @@ const toDos = {
   deleteToDo: function (toDoId) {
     this.toDoList = this.toDoList.filter((item) => item.id !== toDoId);
   },
+  markAsDone: function (toDoId) {
+    this.toDoList.forEach((item) => {
+      if (item.id === toDoId) item.done = true;
+    });
+  },
   createToDo: function (content) {
     this.toDoList.push({
       id: Date.now() / Math.random(),
