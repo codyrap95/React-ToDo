@@ -4,18 +4,29 @@ import { useContext } from "react";
 import ToDosContext from "../../store/ToDosContext";
 function ToDoList() {
   const ctx = useContext(ToDosContext);
-  ctx.createToDo("aaa");
-
+  const [toDosList, setToDosList] = React.useState(ctx.toDoList);
+  console.log("component rerun");
   return (
     <section className={classes.ToDoList}>
-      {ctx.toDoList.map((item) => (
+      <button
+        onClick={() => {
+          ctx.createToDo("New ToDo");
+          setToDosList(ctx.toDoList.map((item) => item));
+        }}
+      >
+        Add item
+      </button>
+      {toDosList.map((item) => (
         <p
           onClick={() => {
-            item.done = true;
+            ctx.markAsDone(item.id);
+            setToDosList(ctx.toDoList.map((item) => item));
+            console.log("state", toDosList);
+            console.log("ctx", ctx.toDoList);
           }}
           key={item.id}
         >
-          {item.content} {new Date().toLocaleTimeString(item.timestamp)}{" "}
+          {item.content} {new Date(item.timestamp).toLocaleTimeString()}{" "}
           {item.done.toString()}
         </p>
       ))}

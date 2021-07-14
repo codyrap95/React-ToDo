@@ -9,6 +9,7 @@ const toDos = {
     this.toDoList.forEach((item) => {
       if (item.id === toDoId) item.done = true;
     });
+    console.log("din context", this.toDoList);
   },
   createToDo: function (content) {
     this.toDoList.push({
