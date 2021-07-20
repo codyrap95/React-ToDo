@@ -5,17 +5,9 @@ import ToDosContext from "../../store/ToDosContext";
 function ToDoList() {
   const ctx = useContext(ToDosContext);
   const [toDosList, setToDosList] = React.useState(ctx.toDoList);
-  console.log("component rerun");
+  console.log("ToDo component rerun");
   return (
     <section className={classes.ToDoList}>
-      <button
-        onClick={() => {
-          ctx.createToDo("New ToDo");
-          setToDosList(ctx.toDoList.map((item) => item));
-        }}
-      >
-        Add item
-      </button>
       {toDosList.map((item) => (
         <p
           onClick={() => {
