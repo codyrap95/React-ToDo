@@ -1,16 +1,23 @@
-import "./App.css";
 import React from "react";
 import Header from "./components/UI/Header";
 import { ToDosContextProvider } from "./store/ToDosContext";
-import ToDoList from "./components/UI/ToDoList";
-import AddToDo from "./components/UI/AddToDo";
+import ToDoList from "./components/ToDoList";
+import AddToDo from "./components/AddToDo";
+import classes from "./App.module.css";
+import Card from "./components/UI/Card";
 
 function App() {
   return (
     <ToDosContextProvider>
       <Header></Header>
-      <AddToDo />
-      <ToDoList></ToDoList>
+      <main className={classes.main}>
+        <Card>
+          <AddToDo />
+        </Card>
+        <Card>
+          <ToDoList></ToDoList>
+        </Card>
+      </main>
     </ToDosContextProvider>
   );
 }

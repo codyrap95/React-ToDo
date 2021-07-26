@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import ToDosContext from "../../store/ToDosContext";
+import ToDosContext from "../store/ToDosContext";
 import classes from "./AddToDo.module.css";
 
 export default function AddToDo() {
@@ -15,14 +15,18 @@ export default function AddToDo() {
       <textarea
         name="toDoContent"
         id="toDoContent"
-        cols="50"
-        rows="10"
+        cols="30"
+        rows="1"
         ref={toDoContentRef}
         onKeyDown={(e) => {
           if (e.key === "Enter") submitHandler(e);
         }}
       ></textarea>
-      <button type="submit" onClick={submitHandler}>
+      <button
+        className={classes.submitBtn}
+        type="submit"
+        onClick={submitHandler}
+      >
         Add item
       </button>
     </form>

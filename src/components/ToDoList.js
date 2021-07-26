@@ -1,13 +1,13 @@
 import React from "react";
 import classes from "./ToDoList.module.css";
 import { useContext } from "react";
-import ToDosContext from "../../store/ToDosContext";
+import ToDosContext from "../store/ToDosContext";
 function ToDoList() {
   const ctx = useContext(ToDosContext);
   const [toDosList, setToDosList] = React.useState(ctx.toDoList);
   console.log("ToDo component rerun");
   return (
-    <section className={classes.ToDoList}>
+    <div className={classes.toDoList}>
       {toDosList.map((item) => (
         <p
           onClick={() => {
@@ -22,7 +22,7 @@ function ToDoList() {
           {item.done.toString()}
         </p>
       ))}
-    </section>
+    </div>
   );
 }
 export default ToDoList;
