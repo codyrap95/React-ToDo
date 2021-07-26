@@ -7,6 +7,8 @@ export default function AddToDo() {
   const toDoContentRef = useRef();
   const submitHandler = (event) => {
     event.preventDefault();
+    if (toDoContentRef.current.value.trim().length === 0)
+      return alert("To Do cannot be empty");
     ctx.createToDo(toDoContentRef.current.value);
     toDoContentRef.current.value = "";
     console.log("clicked submit");

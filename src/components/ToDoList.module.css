@@ -11,8 +11,3 @@ ul {
   box-sizing: border-box;
   width: 100%;
 }
-li {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
