@@ -3,6 +3,7 @@ import ToDosContext from "../store/ToDosContext";
 import classes from "./AddToDo.module.css";
 
 export default function AddToDo() {
+  const maxLength = 65;
   const ctx = useContext(ToDosContext);
   const toDoContentRef = useRef();
   const submitHandler = (event) => {
@@ -13,7 +14,6 @@ export default function AddToDo() {
     toDoContentRef.current.value = "";
     console.log("clicked submit");
   };
-  const maxLength = 65;
   return (
     <form className={classes.form}>
       <label htmlFor="toDoContent" aria-label="Add ToDo Item"></label>
@@ -24,7 +24,7 @@ export default function AddToDo() {
         maxLength={maxLength.toString()}
         ref={toDoContentRef}
         onChange={(e) => {
-          if (e.target.value.length === 65)
+          if (e.target.value.length === maxLength)
             alert(
               "To-do content can't be longer than " + maxLength + " characters."
             );
