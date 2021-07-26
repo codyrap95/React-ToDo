@@ -6,7 +6,7 @@ import ToDoItem from "./ToDoItem";
 function ToDoList() {
   const ctx = useContext(ToDosContext);
   const [toDosList, setToDosList] = React.useState(ctx.toDoList);
-  console.log("ToDo List component rerun");
+  if (toDosList.length !== ctx.toDoList.length) setToDosList(ctx.toDoList); // resets the toDosList state if the current state's length is not equal to the one in context
   return (
     <div className={classes.toDoList}>
       {toDosList.length === 0 ? (
@@ -18,7 +18,7 @@ function ToDoList() {
               key={item.id}
               onClick={() => {
                 ctx.markAsDone(item.id);
-                setToDosList(ctx.toDoList.map((item) => item));
+                setToDosList(ctx.toDoList.map((item) => item)); // not the best implementation but triggers component re-render
                 console.log("state", toDosList);
                 console.log("ctx", ctx.toDoList);
                 return;
