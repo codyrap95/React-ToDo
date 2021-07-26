@@ -15,7 +15,6 @@ export default function AddToDo() {
       <textarea
         name="toDoContent"
         id="toDoContent"
-        cols="30"
         rows="1"
         ref={toDoContentRef}
         onKeyDown={(e) => {

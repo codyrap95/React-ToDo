@@ -1,9 +1,12 @@
 .form {
   display: flex;
   justify-content: center;
+  width: 100%;
+  margin: 0 10%;
 }
 textarea {
   box-sizing: border-box;
   padding: 1rem;
   font-size: 1.1rem;
+  width: 100%;
 }
