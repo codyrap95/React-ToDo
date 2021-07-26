@@ -5,7 +5,13 @@ export default function Header() {
   return (
     <header className={classes.header}>
       <h1>Daily To-Do App</h1>
-      <button>Log In</button>
+      <button
+        onClick={() => {
+          alert("Login functionality is not available yet");
+        }}
+      >
+        Log In
+      </button>
     </header>
   );
 }
