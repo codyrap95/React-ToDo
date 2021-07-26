@@ -12,6 +12,7 @@
   align-items: center;
   gap: 0.5rem;
   box-sizing: border-box;
+  margin: 1rem 0;
 }
 .toDoItem__content {
 }

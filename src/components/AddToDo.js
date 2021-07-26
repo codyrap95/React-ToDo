@@ -40,7 +40,7 @@ export default function AddToDo() {
         type="submit"
         onClick={submitHandler}
       >
-        Add item
+        Add&nbsp;item
       </button>
     </form>
   );
