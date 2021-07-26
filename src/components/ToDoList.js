@@ -10,7 +10,17 @@ function ToDoList() {
   return (
     <div className={classes.toDoList}>
       {toDosList.length === 0 ? (
-        <span>To Do List is Empty</span>
+        <span>
+          To Do List is Empty.{" "}
+          <button
+            onClick={() => {
+              document.getElementById("toDoContent").focus();
+            }}
+          >
+            Click Here
+          </button>{" "}
+          to start typing.
+        </span>
       ) : (
         <ul>
           {toDosList.map((item) => (
