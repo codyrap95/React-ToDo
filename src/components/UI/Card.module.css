@@ -1,3 +1,14 @@
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: initial;
+    opacity: 1;
+  }
+}
 .card {
   display: inline-block;
   box-sizing: border-box;
@@ -7,6 +18,8 @@
   align-items: center;
   border: 1px solid gray;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 1.5rem;
   width: 100%;
+  animation: pop 0.5s;
+  animation-fill-mode: forwards;
 }

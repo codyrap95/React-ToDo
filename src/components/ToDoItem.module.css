@@ -1,3 +1,12 @@
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: initial;
+  }
+}
 .done {
   text-decoration: line-through;
   color: gray;
@@ -13,8 +22,11 @@
   gap: 0.5rem;
   box-sizing: border-box;
   margin: 1rem 0;
+  animation: pop 0.5s;
+  animation-fill-mode: forwards;
 }
 .toDoItem__content {
+  transition: all 0.5s;
 }
 .toDoItem__checkbox {
   margin: 0;
