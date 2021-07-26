@@ -10,13 +10,22 @@ export default function AddToDo() {
     ctx.createToDo(toDoContentRef.current.value);
     toDoContentRef.current.value = "";
   };
+  const maxLength = 65;
   return (
     <form className={classes.form}>
+      <label htmlFor="toDoContent" aria-label="Add ToDo Item"></label>
       <textarea
         name="toDoContent"
         id="toDoContent"
-        rows="1"
+        rows="2"
+        maxLength={maxLength.toString()}
         ref={toDoContentRef}
+        onChange={(e) => {
+          if (e.target.value.length === 65)
+            alert(
+              "To-do content can't be longer than " + maxLength + " characters."
+            );
+        }}
         onKeyDown={(e) => {
           if (e.key === "Enter") submitHandler(e);
         }}
