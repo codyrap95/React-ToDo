@@ -5,6 +5,11 @@ import classes from "./AddToDo.module.css";
 export default function AddToDo() {
   const ctx = useContext(ToDosContext);
   const toDoContentRef = useRef();
+  const submitHandler = (event) => {
+    event.preventDefault();
+    ctx.createToDo(toDoContentRef.current.value);
+    toDoContentRef.current.value = "";
+  };
   return (
     <form className={classes.form}>
       <textarea
@@ -13,15 +18,11 @@ export default function AddToDo() {
         cols="50"
         rows="10"
         ref={toDoContentRef}
-      ></textarea>
-      <button
-        type="submit"
-        onClick={(event) => {
-          event.preventDefault();
-          ctx.createToDo(toDoContentRef.current.value);
-          toDoContentRef.current.value = "";
+        onKeyDown={(e) => {
+          if (e.key === "Enter") submitHandler(e);
         }}
-      >
+      ></textarea>
+      <button type="submit" onClick={submitHandler}>
         Add item
       </button>
     </form>
