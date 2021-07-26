@@ -16,7 +16,7 @@ function ToDoList() {
           {toDosList.map((item) => (
             <ToDoItem
               key={item.id}
-              onClick={() => {
+              onDone={() => {
                 ctx.markAsDone(item.id);
                 setToDosList(ctx.toDoList.map((item) => item)); // not the best implementation but triggers component re-render
                 console.log("state", toDosList);

@@ -1,5 +1,28 @@
-.crossed {
+.done {
   text-decoration: line-through;
+  color: gray;
 }
 .toDoItem {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  box-sizing: border-box;
+}
+.toDoItem__content {
+}
+.toDoItem__checkbox {
+  margin: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.toDoItem__button {
+  font-size: 1.6rem;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
