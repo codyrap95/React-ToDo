@@ -9,6 +9,7 @@ export default function AddToDo() {
     event.preventDefault();
     ctx.createToDo(toDoContentRef.current.value);
     toDoContentRef.current.value = "";
+    console.log("clicked submit");
   };
   const maxLength = 65;
   return (
@@ -25,9 +26,11 @@ export default function AddToDo() {
             alert(
               "To-do content can't be longer than " + maxLength + " characters."
             );
+          return;
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") submitHandler(e);
+          return;
         }}
       ></textarea>
       <button

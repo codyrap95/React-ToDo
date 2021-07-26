@@ -6,7 +6,7 @@ import ToDoItem from "./ToDoItem";
 function ToDoList() {
   const ctx = useContext(ToDosContext);
   const [toDosList, setToDosList] = React.useState(ctx.toDoList);
-  console.log("ToDo component rerun");
+  console.log("ToDo List component rerun");
   return (
     <div className={classes.toDoList}>
       {toDosList.length === 0 ? (
@@ -21,6 +21,7 @@ function ToDoList() {
                 setToDosList(ctx.toDoList.map((item) => item));
                 console.log("state", toDosList);
                 console.log("ctx", ctx.toDoList);
+                return;
               }}
               toDoData={item}
             />
